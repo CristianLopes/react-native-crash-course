@@ -13,7 +13,7 @@ const SignIn = () => {
   const { setUser, setIsLoggedIn } = useGlobalContext();
 
   const [form, setForm] = useState({
-    email: 'meu@example.com',
+    email: 'me@example.com',
     password: '12345678',
   });
 

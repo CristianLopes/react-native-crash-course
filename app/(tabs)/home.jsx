@@ -16,8 +16,9 @@ import EmptyState from '../../components/EmptyState';
 import { getAllPosts, getLatestPosts } from '../../lib/appwrite';
 import useAppwrite from '../../lib/useAppwrite';
 import VideoCard from '../../components/VideoCard';
-
+import { useGlobalContext } from '../../context/GlobalProvider';
 const Home = () => {
+  const { user } = useGlobalContext();
   const { data: posts, isLoading, refetch } = useAppwrite(getAllPosts);
   const { data: latestPosts } = useAppwrite(getLatestPosts);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -43,7 +44,7 @@ const Home = () => {
                   Welcome Back
                 </Text>
                 <Text className='text-2xl font-psemibold text-white'>
-                  JS Mastery
+                  {user && user.username}
                 </Text>
               </View>
 
